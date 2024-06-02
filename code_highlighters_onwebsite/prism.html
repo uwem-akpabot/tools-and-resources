@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Command Prompt Code with Line Numbers and Copy Feature</title>
+    <title>Prism - Line Numbers, Copy</title>
     <!-- Prism.js CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-okaidia.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism.min.css" rel="stylesheet" />
     <!-- Prism.js Line Numbers Plugin CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet" />
     <!-- Clipboard.js -->
@@ -16,10 +16,9 @@
             margin: 20px 0;
         }
 
-        .copy-btn {
+        .copy-btn, .run-btn {
             position: absolute;
             top: 10px;
-            right: 10px;
             padding: 5px 10px;
             background: #007bff;
             color: #fff;
@@ -32,17 +31,31 @@
         .copy-btn:hover {
             background: #0056b3;
         }
+
+        .copy-btn {
+            right: 80px;
+        }
+
+        .output-container {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            background: #f8f9fa;
+        }
     </style>
 </head>
 <body>
 
 <div class="code-block-container">
     <button class="copy-btn" data-clipboard-target="#code-block">Copy</button>
-    <pre class="line-numbers"><code id="code-block" class="language-bash">
-# Your Command Prompt code goes here
-echo Hello, World!
-mkdir new_folder
-cd new_folder
+    
+    <pre class="line-numbers"><code id="code-block" class="language-javascript">
+// Your JavaScript code goes here
+function greet() {
+    return "Hello, World!";
+}
+
+console.log(greet());
     </code></pre>
 </div>
 
