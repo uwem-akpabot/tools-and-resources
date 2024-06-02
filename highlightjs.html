@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highlight.js - Code Block with Copy Feature</title>
+    <!-- Highlight.js CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
+    <!-- Clipboard.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+    <style>
+        .code-block-container {
+            position: relative;
+            margin: 20px 0;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            background: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .copy-btn:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="code-block-container">
+    <button class="copy-btn" data-clipboard-target="#code-block">Copy</button>
+    <pre><code id="code-block" class="python">
+# Your Python code goes here
+def greet():
+    print("Hello, World!")
+
+if __name__ == "__main__":
+    greet()
+    </code></pre>
+</div>
+
+<!-- Highlight.js JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    hljs.highlightAll();
+
+    new ClipboardJS('.copy-btn');
+
+    // Optionally, add some user feedback
+    const copyBtn = document.querySelector('.copy-btn');
+    copyBtn.addEventListener('click', () => {
+        copyBtn.textContent = 'Copied!';
+        setTimeout(() => {
+            copyBtn.textContent = 'Copy';
+        }, 2000);
+    });
+});
+</script>
+
+</body>
+</html>
