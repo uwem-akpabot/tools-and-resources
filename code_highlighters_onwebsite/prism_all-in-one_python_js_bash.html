@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prism - Multiple Code Blocks</title>
+    <!-- Prism.js CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism.min.css" rel="stylesheet" />
+    <!-- Prism.js Line Numbers Plugin CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet" />
+    <!-- Clipboard.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+    <!-- Prism.js Python Language Definition -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-python.min.js"></script>
+    <!-- Prism.js JavaScript Language Definition -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-javascript.min.js"></script>
+    <!-- Prism.js Bash Language Definition -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-bash.min.js"></script>
+    <style>
+        .code-block-container {
+            position: relative;
+            margin: 20px 0;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            background: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            z-index: 1; /* Ensure the button is on top of the code block */
+        }
+
+        .copy-btn:hover {
+            background: #0056b3;
+        }
+
+        /* Custom CSS for Bash code blocks */
+        .language-bash {
+            background-color: #000 !important; /* Black background */
+            color: #fff !important; /* White text */
+        }
+    </style>
+</head>
+<body>
+
+<div class="code-block-container">
+    <button class="copy-btn" data-clipboard-target="#code-block1">Copy</button>
+    <pre class="line-numbers"><code id="code-block1" class="language-python">
+# Python code block 1
+def greet():
+    return "Hello, World!"
+
+print(greet())
+    </code></pre>
+</div>
+
+<div class="code-block-container">
+    <button class="copy-btn" data-clipboard-target="#code-block2">Copy</button>
+    <pre class="line-numbers"><code id="code-block2" class="language-python">
+# Python code block 2
+def farewell():
+    return "Goodbye, World!"
+
+print(farewell())
+    </code></pre>
+</div>
+
+<div class="code-block-container">
+    <button class="copy-btn" data-clipboard-target="#code-block3">Copy</button>
+    <pre class="line-numbers"><code id="code-block3" class="language-javascript">
+// JavaScript code block 1
+function greet() {
+    return "Hello, World!";
+}
+
+console.log(greet());
+    </code></pre>
+</div>
+
+<div class="code-block-container">
+    <button class="copy-btn" data-clipboard-target="#code-block4">Copy</button>
+    <pre class="line-numbers"><code id="code-block4" class="language-javascript">
+// JavaScript code block 2
+function farewell() {
+    return "Goodbye, World!";
+}
+
+console.log(farewell());
+    </code></pre>
+</div>
+
+<div class="code-block-container">
+    <button class="copy-btn" data-clipboard-target="#code-block5">Copy</button>
+    <pre class="line-numbers"><code id="code-block5" class="language-bash">
+# Bash code block
+echo "Hello, World!"
+    </code></pre>
+</div>
+
+<!-- Prism.js JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js"></script>
+<!-- Prism.js Line Numbers Plugin JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    new ClipboardJS('.copy-btn');
+
+    // Optionally, add some user feedback for the copy button
+    document.querySelectorAll('.copy-btn').forEach((copyBtn) => {
+        copyBtn.addEventListener('click', () => {
+            copyBtn.textContent = 'Copied!';
+            setTimeout(() => {
+                copyBtn.textContent = 'Copy';
+            }, 2000);
+        });
+    });
+});
+</script>
+
+</body>
+</html>
